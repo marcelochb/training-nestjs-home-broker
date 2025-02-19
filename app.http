@@ -1,4 +1,28 @@
+
+### Assets
+# @name createAsset
 POST http://localhost:3000/assets
+Content-Type: application/json
+
+{
+    "name": "Apple",
+    "symbol": "AAPL",
+    "price": 150,
+    "image": "AAPL.png"
+}
+
+###
+@assetSymbol = {{ createAsset.response.body.symbol }}
+
+###
+GET http://localhost:3000/assets
+
+
+###
+GET http://localhost:3000/assets/{{ assetSymbol }}
+
+###
+PATCH  http://localhost:3000/assets/{{ assetSymbol }}
 Content-Type: application/json
 
 {
@@ -9,8 +33,26 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/assets
+DELETE http://localhost:3000/assets/{{ assetSymbol }}
+
+### Wallets
+# @name createWallet
+POST http://localhost:3000/wallets
+
+###
+@walletId = {{ createWallet.response.body._id }}
 
 
 ###
-GET http://localhost:3000/assets/A1
+GET http://localhost:3000/wallets
+
+
+###
+GET http://localhost:3000/wallets/{{ walletId }}
+
+###
+PATCH  http://localhost:3000/wallets/{{ walletId }}
+
+
+###
+DELETE http://localhost:3000/wallets/{{ walletId }}

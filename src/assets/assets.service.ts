@@ -24,11 +24,16 @@ export class AssetsService {
     return this.assetSchema.findOne({ symbol });
   }
 
-  update(id: number, updateAssetDto: UpdateAssetDto) {
-    return `This action updates a #${id} asset`;
+  update(symbol: string, updateAssetDto: UpdateAssetDto) {
+    return this.assetSchema
+      .updateOne
+      (
+        { symbol },
+        { $set: updateAssetDto }
+      );
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} asset`;
+  remove(symbol: string) {
+    return this.assetSchema.deleteOne({ symbol });
   }
 }

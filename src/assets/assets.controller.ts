@@ -22,13 +22,13 @@ export class AssetsController {
     return this.assetsService.findOne(symbol);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAssetDto: UpdateAssetDto) {
-    return this.assetsService.update(+id, updateAssetDto);
+  @Patch(':symbol')
+  update(@Param('symbol') symbol: string, @Body() updateAssetDto: UpdateAssetDto) {
+    return this.assetsService.update(symbol, updateAssetDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.assetsService.remove(+id);
+  @Delete(':symbol')
+  remove(@Param('symbol') symbol: string) {
+    return this.assetsService.remove(symbol);
   }
 }
