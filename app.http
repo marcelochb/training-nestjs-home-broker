@@ -7,3 +7,6 @@ Content-Type: application/json
     "price": 100,
     "image": "AMZN.png"
 }
+
+###
+GET http://localhost:3000/assets
