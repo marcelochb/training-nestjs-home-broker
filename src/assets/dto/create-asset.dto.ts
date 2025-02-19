@@ -1,1 +1,6 @@
-export class CreateAssetDto {}
+export class CreateAssetDto {
+    name: string;
+    price: number;
+    image: string;
+    symbol: string;
+}
