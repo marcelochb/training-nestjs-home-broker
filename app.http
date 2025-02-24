@@ -58,7 +58,7 @@ PATCH  http://localhost:3000/wallets/{{ walletId }}
 ###
 DELETE http://localhost:3000/wallets/{{ walletId }}
 
-###
+### Add Asset to Wallet
 POST http://localhost:3000/wallets/{{ walletId }}/assets
 Content-Type: application/json
 
